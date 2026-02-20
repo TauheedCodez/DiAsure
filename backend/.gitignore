@@ -1,0 +1,19 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+.idea/
+
+# Model files (too large for GitHub)
+models/
+*.h5
+*.hdf5

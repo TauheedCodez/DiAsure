@@ -1,0 +1,235 @@
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.landing-hero {
+  background: linear-gradient(135deg, #0F766E 0%, #0891B2 100%);
+  color: white;
+  padding: var(--spacing-2xl) 0;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: white;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.95;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-2xl);
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-lg {
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+  background: white;
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   DOs & DON'Ts SECTION
+   ========================================= */
+
+.dos-donts-section {
+  flex: 1;
+  padding: var(--spacing-2xl) 0;
+  background: var(--bg-primary);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: var(--spacing-2xl);
+  color: var(--text-primary);
+}
+
+.dos-donts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.dos-card,
+.donts-card {
+  transition: var(--transition);
+}
+
+.dos-card:hover,
+.donts-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.card-icon.success {
+  color: var(--success);
+}
+
+.card-icon.danger {
+  color: var(--danger);
+}
+
+.dos-donts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dos-donts-list li {
+  padding: var(--spacing-sm) 0;
+  padding-left: var(--spacing-lg);
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+}
+
+.dos-donts-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* =========================================
+   INFO BANNER
+   ========================================= */
+
+.info-banner {
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(8, 145, 178, 0.1));
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  text-align: center;
+}
+
+.info-banner p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.info-banner strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.landing-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.landing-footer p {
+  margin: var(--spacing-sm) 0;
+  font-size: 0.875rem;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .btn-lg {
+    width: 100%;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  .dos-donts-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}

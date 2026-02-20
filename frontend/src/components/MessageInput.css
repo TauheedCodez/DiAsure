@@ -1,0 +1,165 @@
+.message-input-container {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+.message-input {
+  flex: 1;
+  min-width: 0; /* Important for flex shrinking */
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  resize: none;
+  max-height: 120px;
+}
+
+.message-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: var(--bg-secondary);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.message-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Upload button (icon style) */
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.btn-icon:hover:not(:disabled) {
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+.btn-icon:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.btn-icon:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Send button */
+.send-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 0.75rem 1.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+}
+
+.send-icon {
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.send-text {
+  display: inline;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+  .message-input-container {
+    padding: var(--spacing-md);
+    gap: var(--spacing-xs);
+  }
+
+  .message-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 0.625rem 0.875rem;
+  }
+
+  .btn-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.125rem;
+  }
+
+  .send-btn {
+    padding: 0.625rem 1rem;
+  }
+
+  .send-text {
+    display: none; /* Hide text on mobile, show only icon */
+  }
+
+  .send-icon {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .message-input-container {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .message-input {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .btn-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .send-btn {
+    padding: 0.5rem 0.75rem;
+    min-width: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .message-input-container {
+    padding: var(--spacing-xl) var(--spacing-2xl);
+  }
+
+  .message-input {
+    padding: 0.875rem 1.25rem;
+  }
+
+  .btn-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .send-btn {
+    padding: 0.875rem 2rem;
+  }
+}

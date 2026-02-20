@@ -1,0 +1,229 @@
+.chat-sidebar {
+  width: 280px;
+  height: 100vh;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden; /* Prevent overflow glitches */
+}
+
+.sidebar-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+}
+
+.sidebar-header .btn {
+  width: 100%;
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.chat-list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--spacing-sm);
+  min-height: 0;
+  /* Smooth scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  min-height: 60px;
+}
+
+.chat-item:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-light);
+}
+
+.chat-item.active {
+  background: var(--primary);
+  color: white;
+}
+
+.chat-item.active .chat-title,
+.chat-item.active .chat-date {
+  color: white;
+}
+
+.chat-item-content {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.chat-title {
+  font-weight: 500;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: var(--spacing-xs);
+}
+
+.chat-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.chat-delete {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: var(--spacing-sm);
+}
+
+.chat-delete:hover {
+  background: var(--danger);
+  color: white;
+}
+
+.chat-item.active .chat-delete {
+  color: white;
+}
+
+.chat-item.active .chat-delete:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-2xl) var(--spacing-md);
+  color: var(--text-muted);
+}
+
+.empty-state p {
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.875rem;
+}
+
+.sidebar-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl);
+}
+
+/* Enhanced scrollbar for chat list */
+.chat-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-list::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+.chat-list::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+.chat-list::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Firefox scrollbar */
+.chat-list {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-medium) var(--bg-secondary);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+/* Mobile: Sidebar slides in from left */
+@media (max-width: 768px) {
+  .chat-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    max-width: 80vw;
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
+    will-change: transform; /* Optimize animation */
+  }
+
+  .chat-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-header {
+    padding: var(--spacing-md);
+  }
+
+  .chat-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .chat-sidebar {
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  .sidebar-header .btn {
+    font-size: 0.875rem;
+  }
+
+  .chat-title {
+    font-size: 0.875rem;
+  }
+
+  .chat-date {
+    font-size: 0.6875rem;
+  }
+}
+
+/* Desktop: Slightly wider sidebar */
+@media (min-width: 1200px) {
+  .chat-sidebar {
+    width: 320px;
+  }
+
+  .sidebar-header {
+    padding: var(--spacing-xl);
+  }
+
+  .chat-list::-webkit-scrollbar {
+    width: 8px;
+  }
+}
